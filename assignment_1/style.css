@@ -1,0 +1,15 @@
+html {
+    font-size: 10px;
+    background-color: #6f8bf9;
+  }
+
+  header {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #857E94;
+  }
+  header img {
+    display: block;
+    height: 150px;
+    padding-top: 20.15px;
+  }
