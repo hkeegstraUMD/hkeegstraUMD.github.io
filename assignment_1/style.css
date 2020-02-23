@@ -5,11 +5,16 @@ html {
 
   header {
     display: flex;
-    flex-flow: row wrap;
+    justify-content:space-between;
     background-color: #857E94;
+    font-size: 30px;
   }
   header img {
-    display: block;
-    height: 150px;
-    padding-top: 20.15px;
+    display: flex;
+    height: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
   }
+
+  
