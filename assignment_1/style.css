@@ -3,13 +3,15 @@ html {
     background-color: #6f8bf9;
   }
 
-  header {
+  .header {
     display: flex;
-    justify-content:space-between;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    align-items: center;
     background-color: #857E94;
     font-size: 30px;
   }
-  header img {
+  .header img {
     display: flex;
     height: 300px;
     padding-top: 10px;
