@@ -1,23 +1,72 @@
-html {
-    font-size: 10px;
+html, body {
+    font-size: 20px;
     background-color: #6f8bf9;
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
   }
 
   .header {
     display: flex;
+    font-family: 'Passion One', cursive;
     justify-content:space-around;
-    flex-wrap: wrap;
     align-items: center;
     background-color: #857E94;
     font-size: 30px;
   }
   .header img {
     display: flex;
-    height: 300px;
+    height: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
+    border-radius: 4px;
   }
 
-  div { background-color: #CCC; } 
+  .wrapper{
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-family: 'Noto Serif', sans-serif;
+  }
+
+  .top_group{
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+  }
+
+  .top_group_img {
+    display: block;
+    margin: 20px;
+    outline: dotted;
+    outline-color: #857E94;
+    border-radius: 4px;
+  }
+
+  .blurb{
+    display: inline-block;
+    text-align: center;
+    background-color: #65D3FD;
+    padding: 10px;
+    margin: 10px;
+    
+  }
+
+  .job{
+    background-color: #65D3FD;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+    outline: dotted;
+    outline-color: #857E94;
+    flex-grow: 3;
+  }
+
+  .job_title{
+    font-size: 25px;
+    font-style: italic;
+  }
+
+  
   
