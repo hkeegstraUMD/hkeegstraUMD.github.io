@@ -1,7 +1,6 @@
 html, body {
     font-size: 10px;
     background-color: #6f8bf9;
-    max-width: 1000px;
     margin: 0;
     padding: 0;
   }
@@ -26,8 +25,11 @@ html, body {
   .wrapper{
     display:flex;
     justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 15px;
+    max-width: 1000px;
     align-items: center;
-    flex-direction: column;
     font-family: 'Noto Serif', sans-serif;
   }
 
@@ -36,6 +38,7 @@ html, body {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    flex-direction: column;
     flex-grow: 1;
   }
 
@@ -66,6 +69,7 @@ html, body {
   }
 
   .job_title{
+    font-size: 20px;
     font-style: italic;
   }
 
