@@ -6,16 +6,20 @@ html, body {
   }
 
   h1,h2{
+    font-family: 'Passion One', cursive;
     font-weight: 700;
+  }
+
+  h2{
+    font-size: 30px;
   }
 
   .header {
     display: flex;
-    font-family: 'Passion One', cursive;
     justify-content:space-around;
     align-items: center;
     background-color: #857E94;
-    font-size: 24px;
+    font-size: 32px;
   }
   .header img {
     display: flex;
