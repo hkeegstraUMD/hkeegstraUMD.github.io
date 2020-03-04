@@ -25,23 +25,79 @@
       </div>
     </div>
     <script>
+      //change the header (step 4)
+      //bonus: user enters their name, future steps reflect that, also covers step 11
+      let firstName = prompt('Please enter your first name.');
+      let lastName = prompt('Please enter your last name.');
+      let fullName = firstName + " " + lastName;
+      const head = document.querySelector(".header");
+      head.innerHTML = fullName + "'s Lab";
+     
+
+      //used to check if button has been pressed
+      let buttonCheck = 0;
+      //used to revert the content div
+      const oldHTML = document.querySelector(".content").innerHTML;
+
       function clickMe() {
         const content = document.querySelector(".content");
-        content.innerHTML = "Hello world";
-      }
-      const step_4 = document.querySelector(".header");
-      step_4.innerHTML = "Henry's Lab";
- 
-  // create a new div element 
-  var newDiv = document.createElement("p"); 
-  // and give it some content 
-  var newContent = document.createTextNode("Hi there and greetings!"); 
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);  
+        if(buttonCheck === 0){
+          content.innerHTML = "Hello world";
 
-  // add the newly created element and its content into the DOM 
-  var currentDiv = document.getElementById(".header"); 
-  currentDiv.appendChild(newDiv) 
+          //Make the new paragraphs (step 5)
+          content.innerHTML += "<p class =\"newP1\"></p>";
+          content.innerHTML += "<p class =\"newP2\"></p>";
+
+          //constants to refer to the new paragraphs
+          const p1 = document.querySelector(".newP1");
+          const p2 = document.querySelector(".newP2");
+
+          //Get the length of the name (step 6)
+          p1.innerHTML += "my name has " + fullName.length + " characters";
+
+          //Get the third character from the name, capitalise it (step 7, 8)
+          //bonus: check if the name has a third character
+          //double bonus: if the third character is a space, mention it
+          if(firstName.length < 3){
+            p2.innerHTML += "There is no third character in my first name"
+          } else{
+            let thirdChar = firstName.substr(2,1).toUpperCase();
+            if(thirdChar === " "){
+              p2.innerHTML += "the third character in my name is a space";
+            }else{
+            p2.innerHTML += "the third character in my name is " + thirdChar;
+            }
+            
+          }
+
+          //newline for p2, get last 3 characters of lastname (step 9, 10)
+          //bonus: check the last name's length, just return it if 3 or less
+          if(lastName.length <= 3){
+            p2.innerHTML += "</br>" + lastName;
+          }else{
+            p2.innerHTML += "</br>" + lastName.substr(lastName.length-3, 3);
+          }
+
+          //add name length to header(step 12, 13)
+          head.innerHTML += (firstName + lastName).length;
+
+          //Shows button has been pressed odd amount of times, next click will revert
+          buttonCheck = 1;
+      }else{
+        //reverts to the first text and has the user change their name
+        content.innerHTML = oldHTML;
+        firstName = prompt('Please enter your first name.');
+        lastName = prompt('Please enter your last name.');
+        fullName = firstName + " " + lastName;
+        head.innerHTML = fullName + "'s Lab";
+        //Shows button has been pressed even amount of times, next click will show script
+        buttonCheck = 0;
+      }
+    }
+
+      
+
+      
 
     </script>
   </body>
