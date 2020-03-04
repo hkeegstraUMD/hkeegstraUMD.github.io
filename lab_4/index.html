@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Henry Keegstra's Lab 4</title>
+    <title>Prof A's Demo Page</title>
     <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
 
@@ -20,12 +20,6 @@
             cronut glossier pork belly tacos poke next level fanny pack vegan
             jianbing lo-fi.
           </p>
-          <p class = "name">
-            "showName()"
-          </p>
-          <p class = "substringing">
-
-          </p>
         </div>
         <div class="footer"></div>
       </div>
@@ -35,9 +29,20 @@
         const content = document.querySelector(".content");
         content.innerHTML = "Hello world";
       }
-      function showName(){
-        console.log("my name has 14 characters")
-      }
+      const step_4 = document.querySelector(".header");
+      step_4.innerHTML = "Henry's Lab";
+ 
+  // create a new div element 
+  var newDiv = document.createElement("p"); 
+  // and give it some content 
+  var newContent = document.createTextNode("Hi there and greetings!"); 
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);  
+
+  // add the newly created element and its content into the DOM 
+  var currentDiv = document.getElementById(".header"); 
+  currentDiv.appendChild(newDiv) 
+
     </script>
   </body>
 </html>
