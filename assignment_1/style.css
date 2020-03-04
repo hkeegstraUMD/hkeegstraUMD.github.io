@@ -1,8 +1,12 @@
 html, body {
-    font-size: 10px;
+    font-size: 8px;
     background-color: #6f8bf9;
     margin: 0;
     padding: 0;
+  }
+
+  h1,h2{
+    font-weight: 700;
   }
 
   .header {
@@ -11,27 +15,35 @@ html, body {
     justify-content:space-around;
     align-items: center;
     background-color: #857E94;
-    font-size: 30px;
+    font-size: 24px;
   }
   .header img {
     display: flex;
-    height: 200px;
+    height: 150px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
     border-radius: 4px;
   }
 
+  
+
   .wrapper{
     display:flex;
     justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-    font-size: 15px;
-    max-width: 1000px;
-    align-items: center;
+    
+    font-size: 12px;
     font-family: 'Noto Serif', sans-serif;
   }
+
+  .container{
+    display:flex;
+    max-width: 960px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
 
   .top_group{
     display: flex;
@@ -39,12 +51,12 @@ html, body {
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 0 1 25%;
   }
 
   .top_group_img {
     display: block;
-    margin: 20px;
+    margin: 10px;
     outline: dotted;
     outline-color: #857E94;
     border-radius: 4px;
@@ -65,13 +77,28 @@ html, body {
     margin: 10px;
     outline: dotted;
     outline-color: #857E94;
-    flex-grow: 3;
   }
 
   .job_title{
-    font-size: 20px;
+    font-size: 16px;
     font-style: italic;
   }
 
+  @media screen and (max-width: 1000px)
+  {
+    .top_group{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      flex: 0 1 auto;
+    }
+    .container{
+      display: flex;
+      justify-content: space-around;
+    }
+
+  }
   
   
