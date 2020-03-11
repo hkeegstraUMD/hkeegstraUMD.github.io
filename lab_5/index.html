@@ -11,7 +11,7 @@
     <div class="wrapper">
       <div class="header">Test JSON page</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-      <button class="activate">Click me to replace list
+      <button class="activate" onclick="sortedList()">Click me to replace list
         entries</button>
       <div class="content">
       </div>
@@ -266,6 +266,44 @@
       { "name": "Zimbabwe", "code": "ZW" }
     ]
     console.log("List of countries in the world", countries);
+    
+    //where the stuff is going
+    const listStuff = document.querySelector(".content");
+    //gets a random int from 0 to max-1
+    function getRandomInt(max){
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    //makes an array of 25 unique ints from 0 to 242
+    function getNums(){
+      let nums = [];
+      let rand = 0;
+      for(let i = 0; i < 25; i += 1){
+        rand = getRandomInt(243);
+        if(nums.indexOf(rand) === -1){
+          nums.push(rand);
+        }else{
+          i -= 1;
+        }
+      }
+      return nums;
+    } 
+
+    function checkCountry(val, index, nums){
+      if(nums.indexOf(index) === -1){
+
+      }else{
+        console.log(val);
+      }
+    }
+
+    function sortedList(){
+      listStuff = "bluh";
+      //let nums = getNums();
+      //countries.forEach(checkCountry(value, i, nums));
+    }
+
+
   </script>
 </body>
 
