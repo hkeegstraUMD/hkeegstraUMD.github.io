@@ -267,8 +267,7 @@
     ]
     console.log("List of countries in the world", countries);
     
-    //where the stuff is going
-    const listStuff = document.querySelector(".content");
+    
     //gets a random int from 0 to max-1
     function getRandomInt(max){
       return Math.floor(Math.random() * Math.floor(max));
@@ -289,18 +288,19 @@
       return nums;
     } 
 
-    function checkCountry(val, index, nums){
-      if(nums.indexOf(index) === -1){
-
-      }else{
-        console.log(val);
-      }
-    }
 
     function sortedList(){
-      listStuff = "bluh";
-      //let nums = getNums();
-      //countries.forEach(checkCountry(value, i, nums));
+      const contentDiv = document.querySelector(".content");
+      contentDiv.innerHTML = "<ol class = \"countries\"></ol>";
+      const countriesList = document.querySelector(".countries");
+      let nums = getNums();
+      countries.forEach(function(item, index){
+        if(nums.indexOf(index) === -1){
+          console.log(item)
+        }else{
+          countriesList.innerHTML += "<li><b>"+item.code + "</b> " + item.name+"</li>";
+        }
+      });
     }
 
 
