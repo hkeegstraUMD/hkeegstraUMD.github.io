@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bayes Theorem</title>
+  </head>
+
+  <body>
+    <div class="container">
+      
+    </div>
+    <script>
+      //change the header (step 4)
+      //bonus: user enters their name, future steps reflect that, also covers step 11
+      let probA = prompt('What is the probability of A?');
+      let probB = prompt('What is the probability of B?');
+      let probBA = prompt('What is the probability of B given A?');
+      let probAB = (probBA * probA) / probB;
+      const cont = document.querySelector(".container");
+      cont.innerHTML = "<p>Probability of A: " + probA + "</p>";
+      cont.innerHTML += "<p>Probability of B: " + probB + "</p>";
+      cont.innerHTML += "<p>Probability of B given A: " + probBA + "</p>"
+      cont.innerHTML += "<p>Probability of A given B: " + probAB + "</p>"
+      
+
+      
+
+      
+
+    </script>
+  </body>
+</html>
