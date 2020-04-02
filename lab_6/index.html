@@ -3,6 +3,7 @@
   <head>
     <title>Forms Lab</title>
     <link href="form_styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;600&display=swap" rel="stylesheet"> 
   </head>
   <body>
     <div class="wrapper">
@@ -11,24 +12,14 @@
           <h1>HTML 1 Forms Lab</h1>
         </div>
         <div>
-          <form action="/my-handling-form-page" method="post">
-            <ul>
-              <li>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name">
-              </li>
-              <li>
-                <label for="mail">E-mail:</label>
-                <input type="email" id="mail" name="user_email" value="test">
-              </li>
-              <li>
-                <label for="msg">Message:</label>
-                <textarea id="msg" name="user_message"></textarea>
-              </li>
-              <li class="button">
-                <button type="submit">Send your message</button>
-              </li>
-             </ul>
+          <form action="https://nameless-thicket-21836.herokuapp.com/lab" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="user_name" maxLength="140">
+            
+            <label for="interests">Interests</label>
+            <textarea id="msg" name="user_message" rows = "5" cols = "33">Tell us about yourself</textarea>
+           
+            <button type="submit">Submit</button>
           </form>
         </div>
       </div>
