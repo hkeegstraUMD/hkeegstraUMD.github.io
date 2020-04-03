@@ -101,3 +101,10 @@ h3 {
   position: relative;
   top: 1px;
 }
+
+.leaflet-popup-content-wrapper {
+  background-color: yellow;
+  color: red;
+  opacity: .7;
+  box-shadow: 0 5px 20px brown;
+}
