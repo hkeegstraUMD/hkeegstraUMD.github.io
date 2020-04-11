@@ -10,16 +10,18 @@
       <div class="wrapper">
         <div class="header">Frontend Libraries: Charts Lab</div>
         <div class="content">
-          When your lab is done, this should be replaced with a useful chart full of food data.
+          <div id="chartContainer" style="height: 500px; width: 100%;"></div>
         </div>
         <div class="footer">Let's eat out in the future!</div>
       </div>
     </div>
     <script>
+      //using lab walkthrough
       fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json') // replace this with the food safety data set
         .then((response) => response.json()) // this is an "implicit return" - we're returning the results of the Fetch request to the next step.
         .then((data) => { // this is an explicit return. If I want my information to go further, I'll need to use the "return" keyword before the brackets close
           console.log(data);
+          console.log("Number of data points: " + data.length);
           // return data; // <- this will pass the data to the next "then" statement when I'm ready.
           const clearEmptyData = data.filter((f) => f.geocoded_column_1);
           const refined = clearEmptyData.map((m) => ({
@@ -43,11 +45,50 @@
           const reformattedData = Object.entries(data).map((m, i) => {
             console.log(m);
             return{
-              y: m[1].length;
-              label: m[0];
+              y: m[1].length,
+              label: m[0],
+              //default that will be changed later
+              color: "red",
+            };
+          });
+          //sort the array by count, from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+          reformattedData.sort((a, b) => (a.y < b.y) ? 1 : -1);
+          //used to set the datapoint's color because colorSet wasn't working for me
+          //color set from https://www.color-hex.com/color-palette/90365 because of course I'm gonna rep my favorite band from middle school
+          const colorArray = ["#a52929", "#811c1c", "#691b1b", "#e8f067", "#f4b63f"];
+          let curColor = -1;
+          for(let i = 0; i < reformattedData.length; i += 1){
+            if (curColor < colorArray.length - 1){
+              curColor += 1;
+            }else{
+              curColor = 0;
             }
-          })
+            reformattedData[i].color = colorArray[curColor];
+          }
+          return reformattedData;
         })
+        .then((results) => {
+          console.log(results);
+          //using https://canvasjs.com/html5-javascript-pie-chart/
+          const chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled:true,
+            title:{
+              text: "Where To Eat In PG County",
+            },
+            subtitles:[{
+              text: "Formatted In A Way That Newburger Would Flunk You For",
+            }],
+            data: [
+              {
+                type: "pie",
+		            startAngle: 270,
+                dataPoints: results
+              }
+            ]
+          });
+          chart.render();
+        });
+
     </script>
   </body>
 </html>
