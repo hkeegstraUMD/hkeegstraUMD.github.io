@@ -4,13 +4,18 @@
 <head>
   <title>Replace Me With Your Lab Page</title>
   <link rel="stylesheet" type="text/css" href="./styles.css">
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="wrapper">
       <div class="header">Replace Me With Your Lab Page</div>
-      <div class="content"></div>
+      <! It was either less labels or weird container, I chose the former>
+      <div class="content" style="height: 800px; width: 100%;">
+        
+        <div id="chartContainer" style="height: 500px; width: 100%;"></div>
+      </div>
       <div class="footer"></div>
     </div>
   </div>
@@ -31,7 +36,7 @@
               {
                 type: "pie",
 		            startAngle: 270,
-                dataPoints: results
+                dataPoints: res.data
               }
             ]
           });
