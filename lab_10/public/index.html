@@ -22,6 +22,7 @@
             </textarea
             ><br />
             <button id="formBtn">Submit</button>
+            <button id="getBtn">See Submissions</button>
           </form>
         </div>
       </div>
@@ -35,24 +36,56 @@
         const formToSend = new FormData(target);
 
         fetch("/api", {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(Object.fromEntries(formToSend)),
         })
           .then((data) => data.text()) // note: we didn't send JSON, so there's no JSON to get.
+          .then((jsonresponse) => {
+            console.log(jsonresponse);
+            btn.setAttribute("disabled", true);
+            const br = document.createElement("br");
+            target.append(br);
+            console.log(typeof jsonresponse)
+            target.append(jsonresponse[0]);
+          });
+      }
+      function getForm(e) {
+        e.preventDefault(); // this prevents your page reloading on button click
+        const target = document.querySelector("#labForm");
+        const btn = document.querySelector("#getBtn");
+
+        fetch("/api", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((data) => data.text()) // note: we didn't send JSON, so there's no JSON to get.
           .then((txtresponse) => {
+            responses = JSON.parse(txtresponse)
             console.log(txtresponse);
             btn.setAttribute("disabled", true);
             const br = document.createElement("br");
             target.append(br);
-            target.append(`${txtresponse}`);
+            num_responses = Object.keys(responses).length;
+            target.innerHTML += '<ol id = "responseList"></ol>';
+            var fillList = document.getElementById("responseList");
+            for(var i = 0; i < num_responses; i += 1){
+              var test = document.createElement("li");
+              test.appendChild(document.createTextNode("Name: " + responses[i].name +
+              ", Zip Code: " + responses[i].zipcode + ", Interests: " + responses[i].interests));
+              fillList.appendChild(test);
+            }
           });
       }
 
       const formBtn = document.querySelector("#formBtn");
       formBtn.addEventListener("click", sendForm);
+      const getBtn = document.querySelector("#getBtn");
+      getBtn.addEventListener("click", getForm);
     </script>
   </body>
 </html>

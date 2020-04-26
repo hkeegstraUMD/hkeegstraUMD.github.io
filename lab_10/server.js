@@ -60,10 +60,27 @@ app
       console.log(req.body);
       res.status("418").send("something went wrong, additionally i am a teapot");
     } else {
-      writeUser(req.body.name, dbSettings)
+      writeUser(req.body.name, req.body.zip, req.body.interests, dbSettings)
       .then((result) => {
         console.log(result);
         res.send("your request was successful"); // simple mode
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  })
+  .put((req, res) => {
+    console.log("/api put request", req.body);
+    if (!req.body.name) {
+      console.log(req.body);
+      res.status("418").send("something went wrong, additionally i am a teapot");
+    } else {
+      writeUser(req.body.name, req.body.zip, req.body.interests, dbSettings)
+      .then((result) => {
+        console.log(result);
+        var successMsg = "good job, ya dun it"
+        res.json({ "name":"John", "age":30, "car":null });
       })
       .catch((err) => {
         console.log(err);
