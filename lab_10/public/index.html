@@ -42,14 +42,14 @@
           },
           body: JSON.stringify(Object.fromEntries(formToSend)),
         })
-          .then((data) => data.text()) // note: we didn't send JSON, so there's no JSON to get.
+          .then((data) => data.json()) // note: we didn't send JSON, so there's no JSON to get.
           .then((jsonresponse) => {
             console.log(jsonresponse);
             btn.setAttribute("disabled", true);
             const br = document.createElement("br");
             target.append(br);
             console.log(typeof jsonresponse)
-            target.append(jsonresponse[0]);
+            target.append(jsonresponse.msg);
           });
       }
       function getForm(e) {

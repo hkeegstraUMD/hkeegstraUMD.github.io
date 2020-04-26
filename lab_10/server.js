@@ -79,8 +79,8 @@ app
       writeUser(req.body.name, req.body.zip, req.body.interests, dbSettings)
       .then((result) => {
         console.log(result);
-        var successMsg = "good job, ya dun it"
-        res.json({ "name":"John", "age":30, "car":null });
+        var successMsg = JSON.parse('{"msg":"Congrats, ya dun it"}');
+        res.json(successMsg);
       })
       .catch((err) => {
         console.log(err);
